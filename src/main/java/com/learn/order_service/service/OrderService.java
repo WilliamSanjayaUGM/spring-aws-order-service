@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.learn.order_service.client.ProductFeignClient;
 import com.learn.order_service.client.model.ProductDTO;
@@ -36,7 +35,7 @@ public class OrderService {
 	private final OrderRepository orderRepository;
 	
 	@Transactional
-	public OrderResponseDTO createOrder(@RequestBody OrderRequestDTO orderRequest) {
+	public OrderResponseDTO createOrder(OrderRequestDTO orderRequest) {
 		ResponseEntity<List<ProductDTO>> productDTOResponse = productFeignCLient.findAll();
 		List<ProductDTO> productDTOList = new ArrayList<>();
 		if(!ObjectUtils.isEmpty(productDTOResponse) && !ObjectUtils.isEmpty(productDTOResponse.getBody()) ) {
