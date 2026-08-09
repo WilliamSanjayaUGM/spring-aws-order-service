@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.learn.order_service.client.model.ProductDTO;
 
 @FeignClient(
-	    name = "cloud-gateway",
-	    url = "${gateway.url}"
+	    name = "product-service",
+	    url = "${product.service.url}"
 )
 public interface ProductFeignClient {
 	
