@@ -56,8 +56,7 @@ public class OrderService {
 		List<PurchasedItems> purchasedItemList = 
 				processAndMapPurchasedItems(productDTOList, orderRequest.getPurchasedItems());
 		
-		order.getPurchasedItems().clear();
-		order.getPurchasedItems().addAll(purchasedItemList);
+		order.setPurchasedItems(purchasedItemList);
 		order.setTotalAmount(countTotalAmountPurchasedItems(purchasedItemList));
 		orderRepository.save(order);
 		return orderMapper.orderEntityToOrderResponseDTO(order);
