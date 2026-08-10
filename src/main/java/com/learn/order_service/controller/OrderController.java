@@ -24,7 +24,7 @@ public class OrderController {
 	
 	private final OrderService orderService;
 	
-	@PostMapping
+	@PostMapping({"", "/"})
 	public ResponseEntity<OrderResponseDTO> createOrder(@RequestBody OrderRequestDTO orderRequest) {
 		log.info("========== ORDER CONTROLLER LOADED ==========");
 		return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
