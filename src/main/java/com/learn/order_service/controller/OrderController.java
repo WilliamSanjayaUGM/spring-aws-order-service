@@ -14,9 +14,11 @@ import com.learn.order_service.model.OrderResponseDTO;
 import com.learn.order_service.service.OrderService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 @RequestMapping("/v1/order")
 public class OrderController {
 	
@@ -24,6 +26,7 @@ public class OrderController {
 	
 	@PostMapping
 	public ResponseEntity<OrderResponseDTO> createOrder(@RequestBody OrderRequestDTO orderRequest) {
+		log.info("========== ORDER CONTROLLER LOADED ==========");
 		return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
 	}
 	
