@@ -14,6 +14,6 @@ import com.learn.order_service.client.model.ProductDTO;
 )
 public interface ProductFeignClient {
 	
-	@GetMapping("/product/all")
+	@GetMapping("/v1/product/all")
     ResponseEntity<List<ProductDTO>> findAll();
 }
